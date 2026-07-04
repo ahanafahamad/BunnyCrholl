@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BunnyCrholl | Watch Your Favorite Anime HD, Online Anime Streaming</title>
+  <meta name="description" content="BunnyCrholl is the best website to watch anime online 2026. Stream English, Hindi subbed and dubbed episodes in HD quality. Enjoy fast, free, ad-free streaming. Watch your favorite anime now">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <style>
+  :root {
+  --bg-primary: #0b0b0d;
+  --bg-secondary: #141416;
+  --bg-surface: #1c1c20;
+  --bg-card: #24242a;
+
+  --brand-primary: #ff7a00;
+  --brand-secondary: #ff9d00;
+  --brand-accent: #ffb84d;
+
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+
+  --success: #22c55e;
+  --warning: #facc15;
+  --danger: #ef4444;
+  --info: #38bdf8;
+
+  --border: #2d2d33;
+  --border-light: #3f3f46;
+
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(255, 122, 0, 0.18);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --transition: 0.25s ease;
+}
+html, body {
+background-color: var(--bg-primary);
+color: var(--text-primary);
+}
+</style>
+</head>
+<body>
+  <header class="w-full h-10 bg-[var(--bg-secondary)] flex justify-between items-center px-2"><h1>BynnyCrholl</h1> <div id="hamburger-menu">
+  Menu
+</div></header>
+  <div id="hero-sect">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        ${heroSectResults.map(
+          (hero, i) => `
+    <div class="swiper-slide" key=${1}>
+      <h1>${hero.title}</h1>
+    <h1>${hero.JPtitle}</h1>
+    <img src="${hero.imagePoster}" alt="${hero.title + "|" + hero.JPtitle}">
+    <p>${hero.description}</p>
+  <p>Slug ${hero.url}</p>
+    </div>
+  `,
+        )}
+      </div>
+    </div>
+  </div>
+  <script>
+  const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+});
+  </script>
+</body>
+</html>
