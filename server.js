@@ -440,14 +440,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
-});
 app.get("/google48729a758d9060c6.html", (req, res) => {
   res.type("text/html");
   res.send("google-site-verification: google48729a758d9060c6.html");
 });
 
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`);
+});
 export default app;
