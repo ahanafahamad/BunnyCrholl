@@ -437,6 +437,9 @@ app.get("/api/v1/az-list", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
-
+app.get('/google48729a758d9060c6.html', (req, res) => {
+  res.type('text/html');
+  res.send('google-site-verification: google48729a758d9060c6.html');
+});
 
 export default app;
