@@ -2,6 +2,8 @@ import * as cheerio from "cheerio";
 import express from "express";
 import axios from "axios";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const PORT = 3433;
 const app = express();
@@ -434,12 +436,18 @@ app.get("/api/v1/az-list", async (req, res) => {
   }
 });
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+app.use(express.static(path.join(__dirname, './')));
+
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
-app.get('/google48729a758d9060c6.html', (req, res) => {
-  res.type('text/html');
-  res.send('google-site-verification: google48729a758d9060c6.html');
+app.get("/google48729a758d9060c6.html", (req, res) => {
+  res.type("text/html");
+  res.send("google-site-verification: google48729a758d9060c6.html");
 });
 
 export default app;
