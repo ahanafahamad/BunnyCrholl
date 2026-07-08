@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>BunnyCrholl | Watch Your Favorite Anime HD, Online Anime Streaming</title>
   <meta name="description" content="BunnyCrholl is the best website to watch anime online 2026. Stream English, Hindi subbed and dubbed episodes in HD quality. Enjoy fast, free, ad-free streaming. Watch your favorite anime now">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="shortcut icon" href="./BunnyCrholl.ico" type="image/x-icon">
   <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
@@ -51,35 +57,69 @@
 html, body {
 background-color: var(--bg-primary);
 color: var(--text-primary);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
+  font-family: "Lato", sans-serif;
 }
+
 </style>
 </head>
 <body>
-  <header class="w-full h-10 bg-[var(--bg-secondary)] flex justify-between items-center px-2"><h1>BynnyCrholl</h1> <div id="hamburger-menu">
-  Menu
-</div></header>
-  <div id="hero-sect">
+  <header class="z-[9999999] w-full h-15 bg-[var(--bg-secondary)]/30 backdrop-blur flex justify-between items-center fixed top-0 left-0"><img src="1000135534-removebg-preview.png" alt="BunnyCrholl" class="w-30 object-contain"> <div id="menuBAR"> <svg>Menu</svg></div></header>
+  <div id="heroSect" class='mt-15 bg-[var(--bg-surface)] w-full h-[80vh]'>
+    <div class="swiper w-full h-full">
+      <div class="swiper-wrapper w-full h-full">
+        ${heroSect
+          .map(
+            (anime) => `
+        <div class="relative swiper-slide w-[100vw] h-[76vh]">
+         <div class="absolute inset-0 w-full h-full bg-black/40 z-[88]"></div>
+         <div class="absolute overflow-hidden w-full h-full z-[78] inset-0"><img src="${anime.img}" alt="${anime.animeALT}" class="w-full h-full inset-0 absolute object-cover"></div>
+          <div class="absolute inset-0 film_info-BunnyCrholl w-full h-full z-[99] bg-transparent flex flex-col justify-end items-center px-4 py-5 gap-2 text-left">
+            <h2 class="animeTitle font-[Oswald] text-3xl md:text-4xl">${anime.animeTitle}</h2>
+           
+            <span class="text-[10px] text-white/80 animeTicks w-full py-1 flex gap-2 flex-wrap">
+              <span>${anime.type}</span>
+              <span>${anime.duration}</span>
+              <span>${anime.aired}</span>
+              <span>${anime.quality}</span>
+            </span>
+            <p class="text-[12px]">${
+              anime.description.length > 150
+                ? anime.description.slice(0, 150) + "..."
+                : anime.description
+            }</p>
+            <div class="w-full h-auto py-1 flex gap-2">
+            <button class="bg-[var(--brand-primary)] px-5 py-2 text-white font-[Oswald] rounded-sm">Watch</button>
+            <button class="bg-[var(--brand-primary)] px-5 py-2 text-white font-[Oswald] rounded-sm">Detail</button>
+            </div>
+          </div>
+        </div>
+        `,
+          )
+          .join("")}
+      </div>
+    </div>
+  </div>
+  <div id="trending" class="w-full h-auto bg-[var(--bg-secondary)] flex flex-col justify-center items-center gap-3">
+    <h2 class="text-2xl font-[Oswald]">Trending Anime</h2>
     <div class="swiper">
       <div class="swiper-wrapper">
-        ${heroSectResults.map(
-          (hero, i) => `
-    <div class="swiper-slide" key=${1}>
-      <h1>${hero.title}</h1>
-    <h1>${hero.JPtitle}</h1>
-    <img src="${hero.imagePoster}" alt="${hero.title + "|" + hero.JPtitle}">
-    <p>${hero.description}</p>
-  <p>Slug ${hero.url}</p>
-    </div>
-  `,
-        )}
+        ${trending.map(anime => `
+        <div class="swiper-slide"></div>
+    `).join('')}
       </div>
     </div>
   </div>
   <script>
-  const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
+  const swiper = new Swiper(".swiper", {
   loop: true,
-});
-  </script>
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    speed: 800,
+  },
+  });</script>
 </body>
 </html>

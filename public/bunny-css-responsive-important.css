@@ -1,0 +1,147 @@
+/* ============================================
+   RESPONSIVE FIXES – BunnyCrholl
+   শুধু লেআউট ঠিক করে, কার্ড বা কাস্টম স্টাইল নষ্ট করে না
+   ============================================ */
+
+/* ---------- Header ---------- */
+#mainHeader .max-w-7xl {
+  flex-wrap: nowrap;
+}
+#mainHeader img {
+  width: auto;
+}
+@media (max-width: 640px) {
+  #mainHeader {
+    padding: 8px 12px !important;
+  }
+  }
+  #mainHeader .font-\[Oswald\] {
+    font-size: 1rem !important;
+  }
+}
+
+/* ---------- Hero Section ---------- */
+#heroSect .animeTitle {
+  font-size: clamp(1.5rem, 6vw, 3.5rem) !important;
+  line-height: 1.2;
+}
+#heroSect .animeTicks span {
+  font-size: clamp(0.6rem, 1.5vw, 0.75rem) !important;
+  padding: 2px 10px;
+}
+#heroSect .film_info-BunnyCrholl p {
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem) !important;
+  max-width: 90%;
+}
+@media (max-width: 480px) {
+  #heroSect .film_info-BunnyCrholl {
+    padding: 12px !important;
+  }
+  #heroSect .animeTicks {
+    gap: 4px !important;
+  }
+}
+
+/* ---------- Swiper Containers ---------- */
+/* কার্ডের সাইজ ইতিমধ্যে ইনলাইন মিডিয়া কোয়ারিতে আছে, তাই আমরা শুধু কন্টেইনারের উচ্চতা অ্যাডজাস্ট করি */
+#trending,
+#airing,
+#popular,
+#completed {
+  padding: 2rem 0 !important;
+}
+.trendingSwiper,
+.airingSwiper,
+.popularSwiper,
+.completedSwiper {
+  height: auto !important;
+  min-height: 300px;
+}
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 16px !important;
+}
+
+/* ---------- Genres ---------- */
+#genres .flex-wrap {
+  gap: 0.5rem !important;
+}
+#genres .inline-block {
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem) !important;
+  padding: 6px 14px !important;
+}
+@media (max-width: 480px) {
+  #genres .flex-wrap {
+    justify-content: center !important;
+  }
+}
+
+/* ---------- Share Modal ---------- */
+.modal-box {
+  max-width: 90vw !important;
+  width: 400px !important;
+  padding: 1.5rem !important;
+}
+.share-grid {
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)) !important;
+  gap: 0.8rem !important;
+}
+@media (max-width: 400px) {
+  .share-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* ---------- Footer ---------- */
+footer .grid {
+  gap: 2rem !important;
+}
+footer .col-span-1 {
+  text-align: left;
+}
+footer .col-span-1 ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+footer form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+footer input {
+  width: 100% !important;
+}
+@media (max-width: 640px) {
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  footer .col-span-1 {
+    align-items: center !important;
+  }
+  footer .col-span-1 ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  footer form {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  footer .border-t {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* ---------- Utility ---------- */
+/* টেইলউইন্ডের ক্লাসগুলোর সাথে বিরোধ এড়াতে */
+.w-full {
+  width: 100% !important;
+}
+.max-w-7xl {
+  max-width: 80rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
