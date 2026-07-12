@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BunnyCrholl - Anime Streaming</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    body { background: #0f0f12; color: #f1f1f5; font-family: 'Segoe UI', system-ui, sans-serif; }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .anime-card { transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+    .anime-card:hover { transform: scale(1.02); box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
+    .swiper-button-next, .swiper-button-prev { color: #f1f1f5; background: rgba(0,0,0,0.4); padding: 20px 10px; border-radius: 8px; }
+    .swiper-pagination-bullet { background: #fff; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #1a1a20; }
+    ::-webkit-scrollbar-thumb { background: #3b3b4a; border-radius: 10px; }
+    .nav-link { transition: color 0.2s; }
+    .nav-link:hover { color: #60a5fa; }
+    .episode-btn { transition: background 0.2s; }
+    .episode-btn:hover { background: #2563eb; }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main class="container mx-auto px-4 py-6">
+    <%- body %>
+  </main>
+  <%- include('partials/footer') %>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // GSAP animations
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.from('.fade-in', { opacity: 0, y: 40, duration: 0.8, stagger: 0.1, ease: 'power3.out' });
+      // Swiper initialization
+      new Swiper('.swiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        autoplay: { delay: 5000 },
+        breakpoints: {
+          640: { slidesPerView: 2, spaceBetween: 20 },
+          768: { slidesPerView: 3, spaceBetween: 20 },
+          1024: { slidesPerView: 5, spaceBetween: 20 }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
